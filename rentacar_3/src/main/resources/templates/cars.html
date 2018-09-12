@@ -42,9 +42,9 @@
     </nav>
 
 
-    <article th:each="story : ${stories}">
+    <article th:each="car : ${cars}">
         <header>
-            <h1 th:text="${story.title}">Ez itt a cím</h1>
+            <h1 th:text="${car.registrationPlate}">Ez itt a cím</h1>
             <p th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
         </header>
 
@@ -68,7 +68,7 @@
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>-->
 </body>
 </html>
