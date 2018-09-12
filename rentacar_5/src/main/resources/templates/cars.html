@@ -44,10 +44,10 @@
 
     <article th:each="car : ${cars}">
         <header>
-            <h1 th:text="${car.registrationPlate}">Ez itt a cím</h1>
+            <h1 th:text="${car.manufacturer}">Ez itt a cím</h1>
         </header>
 
-        <section th:utext="${car.manufacturer}">
+        <section th:utext="${car.color}">
 
         </section>
         <hr/>
