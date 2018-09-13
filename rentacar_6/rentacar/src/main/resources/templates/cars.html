@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rent-A-Car</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>Available Car List</h1>
+<table style="width:50%; height:300px; font-size: large">
+    <tr style="background-color:darkslateblue">
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+    </tr>
+    <tr th:each="car : ${cars}" style="background-color:lightblue" align="center">
+        <td><a th:text="${car.carType.manufacturer}" th:href="@{'/car/' + ${car.registrationPlate}}"/></td>
+        <td th:text="${car.carType.model}"></td>
+        <td th:text="${car.year}"></td>
+        <td th:text="${car.color}"></td>
+    </tr>
+</table>
+</body>
+</html>
