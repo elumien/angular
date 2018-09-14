@@ -3,6 +3,7 @@ package com.project.rentacar.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Car {
@@ -16,6 +17,8 @@ public class Car {
     private int year;
     @ManyToOne
     private CarType carType;
+    @OneToMany(mappedBy = "car")
+    private List<Rent> rents;
 
     private Car() {
     }
@@ -65,5 +68,13 @@ public class Car {
 
     public void setCarType(CarType carType) {
         this.carType = carType;
+    }
+
+    public List<Rent> getRents() {
+        return rents;
+    }
+
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
     }
 }

@@ -31,4 +31,7 @@ public class CarService {
     public Car getCarByRegistrationPlate(String registrationPlate) {
         return carRepository.findByRegistrationPlate(registrationPlate);
     }
+
+
+
 }
