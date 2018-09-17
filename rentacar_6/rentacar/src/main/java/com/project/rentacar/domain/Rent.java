@@ -1,6 +1,7 @@
 package com.project.rentacar.domain;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,11 +15,16 @@ public class Rent {
     private Long id;
     @ManyToOne
     private Car car;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateFrom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateTo;
     private String email;
 
     private Rent() {
+    }
+
+    public Rent(String registrationPlate) {
     }
 
     public Rent(Car car, Date dateFrom, Date dateTo, String email) {

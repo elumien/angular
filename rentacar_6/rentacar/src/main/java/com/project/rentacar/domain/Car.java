@@ -77,4 +77,16 @@ public class Car {
     public void setRents(List<Rent> rents) {
         this.rents = rents;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", registrationPlate='" + registrationPlate + '\'' +
+                ", color='" + color + '\'' +
+                ", year=" + year +
+                ", carType=" + carType +
+                ", rents=" + rents +
+                '}';
+    }
 }

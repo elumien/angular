@@ -3,10 +3,12 @@ package com.project.rentacar.repository;
 import com.project.rentacar.domain.Car;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Id;
 import java.util.List;
 
+@Repository
 public interface CarRepository extends CrudRepository<Car, Long> {
 
     @Query(value = "SELECT *\n" +
