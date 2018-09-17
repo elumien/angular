@@ -24,7 +24,7 @@ public class Rent {
     private Rent() {
     }
 
-    public Rent(String registrationPlate) {
+    public Rent(String form) {
     }
 
     public Rent(Car car, Date dateFrom, Date dateTo, String email) {

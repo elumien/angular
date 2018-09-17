@@ -26,7 +26,7 @@
         <td th:text="${car.year}"></td>
     </tr>
     <tr style="text-align: center;background-color: white">
-        <td colspan="2" style="border-top: none"><button style="width: 165px" type="button" class="btn btn-primary">Rent</button></td>
+        <td colspan="2" style="border-top: none"><button style="width: 165px" type="button" class="btn btn-primary" th:onclick="'window.location.href=\'/rent?car=' + ${car.registrationPlate} + '\''">Rent</button></td>
     </tr>
 </tr>
 </table>

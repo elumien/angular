@@ -36,15 +36,16 @@ public class CarController {
     }
 
     @GetMapping("/rent")
-    public String openRentForm(Model model) {
-        model.addAttribute("rent", new Rent("registrationPlate"));
+    public String openRentForm(@RequestParam("car") String car, Model model) {
+        model.addAttribute("rent", new Rent("form"));
+        model.addAttribute("carRegistrationPlate", car);
         return "rent";
     }
 
     @PostMapping("/rent")
-    public String rent(@ModelAttribute("rent") Rent rent)
+    public void rent(@ModelAttribute("rent") Rent rent, @ModelAttribute("carRegistrationPlate") String car)
     {
+            rent.setCar(carService.getCarByRegistrationPlate(car));
             rentRepository.save(rent);
-            return "rent";
     }
 }

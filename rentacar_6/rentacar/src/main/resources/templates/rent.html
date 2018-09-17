@@ -8,8 +8,12 @@
 </head>
 <body>
 <form action="#" th:action="@{/rent}" th:object="${rent}" method="post">
-    <h1 style="padding-left: 50px;">Selected Car</h1>
+    <h1 style="padding-left: 50px;">Rent A Car</h1>
     <table class="table table-sm table-striped" style="width: 340px">
+        <tr>
+            <td>Car:</td>
+            <td><input type="text" name="carRegistrationPlate" th:value="${carRegistrationPlate}" /></td>
+        </tr>
         <tr>
             <td>E-mail:</td>
             <td><input type="text" th:field="*{email}" /></td>
