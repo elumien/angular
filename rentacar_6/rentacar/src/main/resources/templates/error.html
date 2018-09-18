@@ -7,11 +7,28 @@
     <link rel="stylesheet" href="../static/css/table.css" th:href="@{/css/table.css}" />
 </head>
 <body>
+
 <div class="container">
     <div>
         <a href="/">Car List</a>
     </div>
-<h3>Your car rental was successful! Thank you for your order.</h3>
+    <article>
+        <header>
+            <h1 th:text="${error}"></h1>
+        </header>
+
+        <section >
+            <p th:text="${message}"></p>
+            <p th:text="${path}"></p>
+            <p th:text="${status}"></p>
+            <p th:text="${timestamp}"></p>
+        </section>
+    </article>
+
+
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
 </body>
 </html>
