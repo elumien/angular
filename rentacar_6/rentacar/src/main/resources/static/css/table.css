@@ -7,3 +7,12 @@ a {
     text-decoration: none!important; /* no underline */
 }
 
+#rent_a_car_table input {
+    cursor: pointer;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+

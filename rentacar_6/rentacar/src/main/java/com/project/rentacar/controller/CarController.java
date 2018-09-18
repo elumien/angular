@@ -44,8 +44,8 @@ public class CarController {
     @PostMapping("/rent")
     public String rent(@ModelAttribute("rent") Rent rent, @ModelAttribute("carRegistrationPlate") String car)
     {
-            String returnPage = carService.saveRent(rent,car);
-            return returnPage;
+        String returnPage = carService.saveRent(rent,car);
+        return returnPage;
 
     }
 
