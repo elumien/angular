@@ -27,11 +27,13 @@ public class CarService {
         this.carTypeRepository = carTypeRepository;
     }
 
-    public void setRentRepository(RentRepository rentRepository) {
+    @Autowired
+    public void rentRepository(RentRepository rentRepository) {
         this.rentRepository = rentRepository;
     }
 
     public List<Car> getCars() {
+
         return carRepository.findAll();
     }
 
@@ -39,10 +41,27 @@ public class CarService {
         return carRepository.findByRegistrationPlate(registrationPlate);
     }
 
-    public void saveRent(Rent rent){
-        this.rentRepository.save(rent);
+    public String saveRent(Rent newRent, String registrationPlate)
+    {
+        String returnPage = "cars";
+
+        Rent collidingRent = rentRepository.findRentByDateFromAndDateTo(newRent.getDateFrom(), newRent.getDateTo(), registrationPlate);
+
+        if (collidingRent == null)
+        {
+            Car rentalCar = getCarByRegistrationPlate(registrationPlate);
+            newRent.setCar(rentalCar);
+            rentRepository.save(newRent);
+            returnPage = "rentsuccess";
+        }
+
+        else
+        {
+            returnPage = "rentfailure";
+        }
+
+        return returnPage;
+
     }
-
-
 
 }

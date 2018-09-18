@@ -1,7 +1,6 @@
 package com.project.rentacar.controller;
 
 import com.project.rentacar.domain.Rent;
-import com.project.rentacar.repository.RentRepository;
 import com.project.rentacar.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,15 +13,13 @@ public class CarController {
     private CarService carService;
 
     @Autowired
-    private RentRepository rentRepository;
-
-    @Autowired
     public void setCarService(CarService carService) {
         this.carService = carService;
     }
 
     @RequestMapping("/")
     public String cars(Model model) {
+
         model.addAttribute("cars", carService.getCars());
         return "cars";
     }
@@ -43,9 +40,10 @@ public class CarController {
     }
 
     @PostMapping("/rent")
-    public void rent(@ModelAttribute("rent") Rent rent, @ModelAttribute("carRegistrationPlate") String car)
+    public String rent(@ModelAttribute("rent") Rent rent, @ModelAttribute("carRegistrationPlate") String car)
     {
-            rent.setCar(carService.getCarByRegistrationPlate(car));
-            rentRepository.save(rent);
+            String returnPage = carService.saveRent(rent,car);
+            return returnPage;
+
     }
 }
